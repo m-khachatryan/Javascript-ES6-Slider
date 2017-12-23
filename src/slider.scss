@@ -1,0 +1,124 @@
+.slider {
+  position: relative;
+  display: none;
+}
+
+.slider-list {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.slider-list-item {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: transform 0.6s ease-in-out;
+  perspective: 1000px;
+  backface-visibility: hidden;
+}
+
+.slider-list-item.active,
+.slider-item-next,
+.slider-item-prev {
+  display: flex;
+}
+
+.slider-item-next,
+.slider-item-prev {
+  position: absolute;
+  top: 0;
+}
+
+.slider-item-next.slide-left,
+.slider-item-prev.slide-right {
+  transform: translateX(0);
+}
+.slider-item-next,
+.active.slide-right {
+  transform: translateX(100%);
+}
+.slider-item-prev,
+.active.slide-left {
+  transform: translateX(-100%);
+}
+
+.slider-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  color: brown;
+  text-align: center;
+  opacity: .5;
+  cursor: pointer;
+
+  &.prev {
+    left: 0;
+  }
+  &.next {
+    right: 0;
+  }
+  &.prev:before,
+  &.next:before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: '';
+    transform: rotate(-45deg);
+    align-self: center;
+  }
+
+  &.prev:before {
+    border-left: 10px solid;
+    border-top: 10px solid;
+  }
+
+  &.next:before {
+    border-right: 10px solid;
+    border-bottom: 10px solid;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    &:before {
+    }
+  }
+}
+
+.slider-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin: 0 auto;
+
+  span {
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: lightgray;
+    cursor: pointer;
+
+    &.active {
+      pointer-events: none;
+      background-color: brown;
+    }
+  }
+}
