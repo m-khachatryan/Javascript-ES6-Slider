@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <link rel="stylesheet" href="assets/slider.css">
+    <style>
+        .slider-container {
+            position: relative;
+            width: 800px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div id="slider1" class="slider">
+            <div class="slider-list" role="list">
+                <div class="slider-list-item active">
+                    <img src="https://az616578.vo.msecnd.net/files/responsive/cover/main/desktop/2016/07/26/636050993469938651-36450259_Photographer-Sonya-Yu-dog-portraits-2-600x600.jpg" alt="">
+                </div>
+                <div class="slider-list-item">
+                    <img src="http://www.travelettes.net/wp-content/uploads/2012/06/mystery2-600x600.jpg" />
+                </div>
+                <div class="slider-list-item">
+                    <img src="http://brasilcalibracao.com.br/images/produtos/josh-holland-illustrations-8-600x600.jpg" />
+                </div>
+            </div>
+            <div class="slider-control prev" role="button" data-direction="prev"></div>
+            <div class="slider-control next" role="button" data-direction="next"></div>
+        </div>
+    </div>
+    <script src="assets/slider.js"></script>
+    <script type="text/javascript">
+        function ready() {
+            const slider1 = new Slider('#slider1', {
+                slide: true,
+                interval: 4000
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', ready);
+    </script>
+</body>
+</html>
